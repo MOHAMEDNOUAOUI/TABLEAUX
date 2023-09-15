@@ -23,3 +23,40 @@ int main(){
 
 return 0;
 }
+
+/////////////////////////////////////////
+
+#include <stdio.h>
+int main()
+{
+  int i,n,n2,S,max;
+int checked =1;
+
+  printf("enter colum number : ");
+  scanf("%d",&n);
+
+
+  int T[n];
+
+  printf("enter the numbers ");
+  for(i=0;i<n;i++)
+    scanf("%d",&T[i]);
+
+  printf("enter a number u want to check : ");
+  scanf("%d",&n2);
+
+
+  for(i=0;i<n;i++){
+    if(n==T[i])
+        checked=0;
+  }
+
+  if(checked)
+    printf("its in the array ");
+    else
+
+        printf("its not in the array");
+
+
+return 0;
+    }
