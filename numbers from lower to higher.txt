@@ -1,15 +1,19 @@
+#include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
 
 int main(){
     int n,i,j,S=0;
-    char retry;
+    char retry[5];
+    int checker;
     do {
 
         main : printf("choose how many numbers you want : ");
     scanf("%d",&n);
-    if (n<=1)
+    if (n<=1){
+        printf("enter a number higher than 1 : \n");
         goto main;
+    }
     int T[n];
     printf("enter the numbers one by one : ");
     for(i=0;i<n;i++){
@@ -28,11 +32,32 @@ int main(){
     for(i=0;i<n;i++)
     printf("%d <",T[i]);
 
-    printf("\nDo you want to retry? (y/n): ");
-    scanf(" %c", &retry);
-    }while(retry == 'y'|| retry=='Y');
+    printf("\nDo you want to retry? (yes/no): ");
+    scanf(" %s",&retry);
+
+    for (int i = 0; retry[i]; i++) {
+            retry[i] = tolower(retry[i]);
+        }
+
+    int yes = 1;
+        for (int i = 0; i < 3; i++) {
+            if (retry[i] != "yes"[i] || retry[i] == '\0') {
+                yes = 0;
+                break;
+            }
+        }
+        if(yes){
+            continue;
+        }
+        else{
+            break;
+        }
+
+
+    }while(1);
     printf("you exited the program ");
 
 
 return 0;
 }
+
