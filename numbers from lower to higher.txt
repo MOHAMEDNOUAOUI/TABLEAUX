@@ -1,0 +1,63 @@
+#include <math.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+int main(){
+    int n,i,j,S=0;
+    char retry[5];
+    int checker;
+    do {
+
+        main : printf("choose how many numbers you want : ");
+    scanf("%d",&n);
+    if (n<=1){
+        printf("enter a number higher than 1 : \n");
+        goto main;
+    }
+    int T[n];
+    printf("enter the numbers one by one : ");
+    for(i=0;i<n;i++){
+        scanf("%d",&T[i]);
+    }
+
+    for(i=0;i<n;i++){
+        for(j=i+1;j<n;j++){
+            if (T[i]>T[j]){
+                S=T[i];
+                T[i]=T[j];
+                T[j]=S;
+            }
+        }
+    }
+    for(i=0;i<n;i++)
+    printf("%d <",T[i]);
+
+    printf("\nDo you want to retry? (yes/no): ");
+    scanf(" %s",&retry);
+
+    for (int i = 0; retry[i]; i++) {
+            retry[i] = tolower(retry[i]);
+        }
+
+    int yes = 1;
+        for (int i = 0; i < 3; i++) {
+            if (retry[i] != "yes"[i] || retry[i] == '\0') {
+                yes = 0;
+                break;
+            }
+        }
+        if(yes){
+            continue;
+        }
+        else{
+            break;
+        }
+
+
+    }while(1);
+    printf("you exited the program ");
+
+
+return 0;
+}
+
